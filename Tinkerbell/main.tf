@@ -58,36 +58,15 @@ resource "tinkerbell_template" "foo" {
   name    = "foo"
   content = <<EOF
 version: "0.1"
-name: ubuntu_provisioning
-global_timeout: 6000
+name: hello_world_workflow
+global_timeout: 600
 tasks:
-  - name: "os-installation"
+  - name: "hello world"
     worker: "{{.device_1}}"
-    volumes:
-      - /dev:/dev
-      - /dev/console:/dev/console
-      - /lib/firmware:/lib/firmware:ro
-    environment:
-      MIRROR_HOST: http-cont.service.kjdev:8080
     actions:
-      - name: "disk-wipe"
-        image: disk-wipe
-        timeout: 90
-      - name: "disk-partition"
-        image: disk-partition
-        timeout: 600
-        environment:
-          MIRROR_HOST: http-cont.service.kjdev:8080
-        volumes:
-          - /statedir:/statedir
-      - name: "install-root-fs"
-        image: install-root-fs
-        timeout: 600
-      - name: "install-grub"
-        image: install-grub
-        timeout: 600
-        volumes:
-          - /statedir:/statedir
+      - name: "hello_world"
+        image: hello-world
+        timeout: 60
 EOF
 }
 
