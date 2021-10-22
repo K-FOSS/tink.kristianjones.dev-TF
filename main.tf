@@ -15,3 +15,7 @@ terraform {
 module "Vault" {
   source = "./Vault"
 }
+
+module "TinkerBell" {
+  source = "./Tinkerbell"
+}
