@@ -20,7 +20,7 @@ provider "tinkerbell" {
 resource "tinkerbell_hardware" "foo" {
   data = <<EOF
 {
-  "id": "2bd4b2b3-3104-4f67-8b5c-3d208d9cd1cd",
+  "id": "0eba0bf8-3772-4b4a-ab9f-6ebe93b90a94",
   "metadata": {
     "facility": {
       "facility_code": "onprem",
@@ -36,11 +36,12 @@ resource "tinkerbell_hardware" "foo" {
         "dhcp": {
           "arch": "x86_64",
           "ip": {
-            "address": "172.31.241.33",
-            "gateway": "172.31.241.37",
+            "address": "172.31.241.37",
+            "gateway": "172.31.241.33",
             "netmask": "255.255.255.224"
           },
-          "mac": "b8:ae:ed:79:5e:1d"
+          "mac": "b8:ae:ed:79:5e:1d",
+          "uefi": true
         },
         "netboot": {
           "allow_pxe": true,
