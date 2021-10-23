@@ -42,7 +42,6 @@ resource "tinkerbell_hardware" "foo" {
           },
           "mac": "b8:ae:ed:79:5e:1d",
           "name_servers": [
-            "172.16.100.25",
             "172.16.0.10",
             "172.16.0.11",
             "172.16.0.12",
