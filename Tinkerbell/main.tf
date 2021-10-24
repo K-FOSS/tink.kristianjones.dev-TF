@@ -40,7 +40,7 @@ resource "tinkerbell_hardware" "foo" {
             "gateway": "172.31.241.33",
             "netmask": "255.255.255.224"
           },
-          "mac": "B8:AE:ED:79:5E:1D",
+          "mac": "00:50:56:be:c4:1c",
           "name_servers": [
             "172.16.100.25"
           ],
@@ -76,7 +76,7 @@ EOF
 resource "tinkerbell_workflow" "foo" {
   template  = tinkerbell_template.foo.id
   hardwares = <<EOF
-{"device_1":"172.31.241.37"}
+{"device_1":"00:50:56:be:c4:1c"}
 EOF
 
   depends_on = [
