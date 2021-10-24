@@ -36,13 +36,13 @@ resource "tinkerbell_hardware" "foo" {
         "dhcp": {
           "arch": "x86_64",
           "ip": {
-            "address": "172.31.241.37",
-            "gateway": "172.31.241.33",
-            "netmask": "255.255.255.224"
+            "address": "172.16.0.99",
+            "gateway": "172.16.0.1",
+            "netmask": "255.255.255.128"
           },
           "mac": "00:50:56:be:c4:1c",
           "name_servers": [
-            "172.16.100.25"
+            "172.16.0.1"
           ],
           "uefi": true
         },
