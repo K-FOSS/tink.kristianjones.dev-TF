@@ -73,13 +73,49 @@ tasks:
 EOF
 }
 
-resource "tinkerbell_workflow" "foo" {
+resource "tinkerbell_workflow" "TestSRV1" {
   template  = tinkerbell_template.foo.id
   hardwares = <<EOF
-{"device_1":"00:50:56:be:c4:1c"}
+{"device_1":"172.16.0.71"}
 EOF
 
   depends_on = [
     tinkerbell_hardware.foo,
   ]
 }
+
+resource "tinkerbell_workflow" "TestSRV2" {
+  template  = tinkerbell_template.foo.id
+  hardwares = <<EOF
+{"device_1":"172.16.0.72"}
+EOF
+
+  depends_on = [
+    tinkerbell_hardware.foo,
+  ]
+}
+
+
+resource "tinkerbell_workflow" "TestSRV3" {
+  template  = tinkerbell_template.foo.id
+  hardwares = <<EOF
+{"device_1":"172.16.0.73"}
+EOF
+
+  depends_on = [
+    tinkerbell_hardware.foo,
+  ]
+}
+
+
+resource "tinkerbell_workflow" "Home1" {
+  template  = tinkerbell_template.foo.id
+  hardwares = <<EOF
+{"device_1":"172.31.241.37"}
+EOF
+
+  depends_on = [
+    tinkerbell_hardware.foo,
+  ]
+}
+
