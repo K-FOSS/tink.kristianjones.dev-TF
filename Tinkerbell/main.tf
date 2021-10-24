@@ -17,7 +17,127 @@ provider "tinkerbell" {
   cert_url       = "http://tink-http-cont.service.kjdev:42114/cert"
 }
 
-resource "tinkerbell_hardware" "foo" {
+resource "tinkerbell_hardware" "TestSRV1" {
+  data = <<EOF
+{
+  "id": "0eba0bf8-3772-4b4a-ab9f-6ebe93b90a91",
+  "metadata": {
+    "facility": {
+      "facility_code": "onprem",
+      "plan_slug": "c2.medium.x86",
+      "plan_version_slug": ""
+    },
+    "instance": {},
+    "state": "provisioning"
+  },
+  "network": {
+    "interfaces": [
+      {
+        "dhcp": {
+          "arch": "x86_64",
+          "ip": {
+            "address": "172.16.0.71",
+            "gateway": "172.16.0.1",
+            "netmask": "255.255.255.128"
+          },
+          "mac": "00:50:56:BE:C4:1C",
+          "name_servers": [
+            "172.16.0.1"
+          ],
+          "uefi": true
+        },
+        "netboot": {
+          "allow_pxe": true,
+          "allow_workflow": true
+        }
+      }
+    ]
+  }
+}
+EOF
+}
+
+resource "tinkerbell_hardware" "TestSRV2" {
+  data = <<EOF
+{
+  "id": "0eba0bf8-3772-4b4a-ab9f-6ebe93b90a92",
+  "metadata": {
+    "facility": {
+      "facility_code": "onprem",
+      "plan_slug": "c2.medium.x86",
+      "plan_version_slug": ""
+    },
+    "instance": {},
+    "state": "provisioning"
+  },
+  "network": {
+    "interfaces": [
+      {
+        "dhcp": {
+          "arch": "x86_64",
+          "ip": {
+            "address": "172.16.0.72",
+            "gateway": "172.16.0.1",
+            "netmask": "255.255.255.128"
+          },
+          "mac": "00:50:56:BE:19:73",
+          "name_servers": [
+            "172.16.0.1"
+          ],
+          "uefi": true
+        },
+        "netboot": {
+          "allow_pxe": true,
+          "allow_workflow": true
+        }
+      }
+    ]
+  }
+}
+EOF
+}
+
+resource "tinkerbell_hardware" "TestSRV3" {
+  data = <<EOF
+{
+  "id": "0eba0bf8-3772-4b4a-ab9f-6ebe93b90a93",
+  "metadata": {
+    "facility": {
+      "facility_code": "onprem",
+      "plan_slug": "c2.medium.x86",
+      "plan_version_slug": ""
+    },
+    "instance": {},
+    "state": "provisioning"
+  },
+  "network": {
+    "interfaces": [
+      {
+        "dhcp": {
+          "arch": "x86_64",
+          "ip": {
+            "address": "172.16.0.73",
+            "gateway": "172.16.0.1",
+            "netmask": "255.255.255.128"
+          },
+          "mac": "00:50:56:BE:EA:05",
+          "name_servers": [
+            "172.16.0.1"
+          ],
+          "uefi": true
+        },
+        "netboot": {
+          "allow_pxe": true,
+          "allow_workflow": true
+        }
+      }
+    ]
+  }
+}
+EOF
+}
+
+resource "tinkerbell_hardware" "Home1" {
   data = <<EOF
 {
   "id": "0eba0bf8-3772-4b4a-ab9f-6ebe93b90a94",
@@ -36,13 +156,13 @@ resource "tinkerbell_hardware" "foo" {
         "dhcp": {
           "arch": "x86_64",
           "ip": {
-            "address": "172.16.0.99",
-            "gateway": "172.16.0.1",
-            "netmask": "255.255.255.128"
+            "address": "172.31.241.37",
+            "gateway": "172.31.241.33",
+            "netmask": "255.255.255.224"
           },
-          "mac": "00:50:56:be:c4:1c",
+          "mac": "B8:AE:ED:79:5E:1D",
           "name_servers": [
-            "172.16.0.1"
+            "172.16.100.25"
           ],
           "uefi": true
         },
@@ -56,6 +176,8 @@ resource "tinkerbell_hardware" "foo" {
 }
 EOF
 }
+
+
 
 resource "tinkerbell_template" "foo" {
   name    = "foo"
