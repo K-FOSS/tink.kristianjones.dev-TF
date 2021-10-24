@@ -40,7 +40,7 @@ resource "tinkerbell_hardware" "foo" {
             "gateway": "172.31.241.33",
             "netmask": "255.255.255.224"
           },
-          "mac": "b8:ae:ed:79:5e:1d",
+          "mac": "B8:AE:ED:79:5E:1D",
           "name_servers": [
             "172.16.100.25"
           ],
