@@ -18,4 +18,8 @@ module "Vault" {
 
 module "TinkerBell" {
   source = "./Tinkerbell"
+
+  Netbox = {
+    Token = module.Vault.Netbox.Token
+  }
 }

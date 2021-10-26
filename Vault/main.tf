@@ -15,3 +15,10 @@ terraform {
 data "vault_generic_secret" "TinkAdmin" {
   path = "CORE0_SITE1/Tinkerbell"
 }
+
+#
+# Netbox
+#
+data "vault_generic_secret" "Netbox" {
+  path = "CORE0_SITE1/Netbox"
+}
