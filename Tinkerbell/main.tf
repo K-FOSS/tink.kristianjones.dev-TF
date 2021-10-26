@@ -75,7 +75,7 @@ name: hello_world_workflow
 global_timeout: 600
 tasks:
   - name: "hello world"
-    worker: "{{.device_1}}"
+    worker: "{{.helloworld}}"
     actions:
       - name: "hello_world"
         image: alpine:3.11
@@ -84,26 +84,14 @@ EOF
 }
 
 
-resource "tinkerbell_workflow" "Home1" {
+resource "tinkerbell_workflow" "HomeCore1" {
   template  = tinkerbell_template.HelloWorldTemplate.id
   hardwares = <<EOF
-{"device_1":"B8:AE:ED:79:5E:1D"}
+{"helloworld":"B8:AE:ED:79:5E:1D"}
 EOF
 
   depends_on = [
     module.IntelNUC.Hardware,
-  ]
-}
-
-
-resource "tinkerbell_workflow" "Site1" {
-  template  = tinkerbell_template.HelloWorldTemplate.id
-  hardwares = <<EOF
-{"device_1":"00:50:56:BE:C4:1C"}
-EOF
-
-  depends_on = [
-    module.VM1.Hardware,
   ]
 }
 
