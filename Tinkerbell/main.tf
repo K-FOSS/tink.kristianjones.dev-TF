@@ -53,6 +53,20 @@ module "IntelNUC" {
   }
 }
 
+module "VM1" {
+  source = "./Machines/Template1"
+
+  Networking = {
+    MacAddress = "00:50:56:BE:C4:1C"
+
+
+    IPAddress = "172.16.0.71"
+
+    Gateway = "172.16.0.1"
+    Mask = "255.255.255.128"
+  }
+}
+
 resource "tinkerbell_template" "HelloWorldTemplate" {
   name    = "foo"
   content = <<EOF
@@ -64,7 +78,7 @@ tasks:
     worker: "{{.device_1}}"
     actions:
       - name: "hello_world"
-        image: hello-world
+        image: alpine:3.11
         timeout: 60
 EOF
 }
@@ -73,11 +87,23 @@ EOF
 resource "tinkerbell_workflow" "Home1" {
   template  = tinkerbell_template.HelloWorldTemplate.id
   hardwares = <<EOF
-{"device_1":"172.31.241.37"}
+{"device_1":"B8:AE:ED:79:5E:1D"}
 EOF
 
   depends_on = [
     module.IntelNUC.Hardware,
+  ]
+}
+
+
+resource "tinkerbell_workflow" "Site1" {
+  template  = tinkerbell_template.HelloWorldTemplate.id
+  hardwares = <<EOF
+{"device_1":"00:50:56:BE:C4:1C"}
+EOF
+
+  depends_on = [
+    module.VM1.Hardware,
   ]
 }
 
