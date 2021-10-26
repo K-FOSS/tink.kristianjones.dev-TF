@@ -76,9 +76,13 @@ global_timeout: 600
 tasks:
   - name: "hello world"
     worker: "{{.helloworld}}"
+    environment:
+      MIRROR_HOST: http-cont.service.kjdev:8080
     actions:
       - name: "hello_world"
         image: alpine:3.11
+        environment:
+          MIRROR_HOST: http-cont.service.kjdev:8080
         timeout: 60
 EOF
 }
