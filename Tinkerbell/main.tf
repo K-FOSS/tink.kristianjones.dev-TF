@@ -77,7 +77,7 @@ resource "tinkerbell_workflow" "Home1" {
 EOF
 
   depends_on = [
-    IntelNUC.Hardware,
+    module.IntelNUC.Hardware,
   ]
 }
 
