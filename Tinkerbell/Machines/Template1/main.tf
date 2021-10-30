@@ -59,7 +59,7 @@ resource "tinkerbell_hardware" "Hardware" {
           "name_servers": [
             "172.16.100.25"
           ],
-          "uefi": false
+          "uefi": true
         },
         "netboot": {
           "allow_pxe": true,
