@@ -71,19 +71,15 @@ resource "tinkerbell_template" "HelloWorldTemplate" {
   name    = "homenuc"
   content = <<EOF
 version: "0.1"
-name: debian_Focal
-global_timeout: 1800
+name: hello_world_workflow
+global_timeout: 600
 tasks:
-  - name: "os-installation"
+  - name: "hello world"
     worker: "{{.intel_nuc}}"
-    volumes:
-      - /dev:/dev
-      - /dev/console:/dev/console
-      - /lib/firmware:/lib/firmware:ro
     actions:
-      - name: "stream-ubuntu-image"
-        image: hello-world:latest
-        timeout: 600
+      - name: "hello_world"
+        image: hello-world
+        timeout: 60
 EOF
 }
 
