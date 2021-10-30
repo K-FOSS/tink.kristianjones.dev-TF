@@ -68,7 +68,7 @@ module "VM1" {
 }
 
 resource "tinkerbell_template" "HelloWorldTemplate" {
-  name    = "foo"
+  name    = "homenuc"
   content = <<EOF
 version: "0.1"
 name: debian_Focal
