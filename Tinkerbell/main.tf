@@ -83,7 +83,7 @@ tasks:
         image: hello-world
         environment:
           MIRROR_HOST: http-cont.service.kjdev:8080
-        timeout: 60
+        timeout: 600
 EOF
 }
 
