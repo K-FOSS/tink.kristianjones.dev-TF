@@ -43,7 +43,7 @@ module "IntelNUC" {
   source = "./Machines/Template1"
 
   Networking = {
-    MacAddress = "B8:AE:ED:79:5E:1D"
+    MacAddress = "b8:ae:ed:79:5e:1d"
 
 
     IPAddress = "172.31.241.37"
@@ -71,18 +71,18 @@ resource "tinkerbell_template" "HelloWorldTemplate" {
   name    = "foo"
   content = <<EOF
 version: "0.1"
-name: hello_world_workflow
-global_timeout: 600
+name: debian_Focal
+global_timeout: 1800
 tasks:
-  - name: "hello world"
+  - name: "os-installation"
     worker: "{{.helloworld}}"
-    environment:
-      MIRROR_HOST: http-cont.service.kjdev:8080
+    volumes:
+      - /dev:/dev
+      - /dev/console:/dev/console
+      - /lib/firmware:/lib/firmware:ro
     actions:
-      - name: "hello_world"
-        image: hello-world
-        environment:
-          MIRROR_HOST: http-cont.service.kjdev:8080
+      - name: "stream-ubuntu-image"
+        image: hello-world:latest
         timeout: 600
 EOF
 }
@@ -91,7 +91,7 @@ EOF
 resource "tinkerbell_workflow" "HomeCore1" {
   template  = tinkerbell_template.HelloWorldTemplate.id
   hardwares = <<EOF
-{"helloworld":"B8:AE:ED:79:5E:1D"}
+{"helloworld":"b8:ae:ed:79:5e:1d"}
 EOF
 
   depends_on = [

@@ -40,12 +40,10 @@ resource "tinkerbell_hardware" "Hardware" {
   "id": "${random_uuid.HardwareID.result}",
   "metadata": {
     "facility": {
-      "facility_code": "onprem",
-      "plan_slug": "c2.medium.x86",
-      "plan_version_slug": ""
+      "facility_code": "onprem"
     },
     "instance": {},
-    "state": "provisioning"
+    "state": ""
   },
   "network": {
     "interfaces": [
@@ -59,10 +57,6 @@ resource "tinkerbell_hardware" "Hardware" {
           },
           "mac": "${var.Networking.MacAddress}",
           "name_servers": [
-            "172.16.0.10",
-            "172.16.0.11",
-            "172.16.0.12",
-            "172.16.0.13",
             "172.16.100.25"
           ],
           "uefi": true
