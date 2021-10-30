@@ -75,7 +75,7 @@ name: debian_Focal
 global_timeout: 1800
 tasks:
   - name: "os-installation"
-    worker: "{{.helloworld}}"
+    worker: "{{.intel_nuc}}"
     volumes:
       - /dev:/dev
       - /dev/console:/dev/console
@@ -91,7 +91,7 @@ EOF
 resource "tinkerbell_workflow" "HomeCore1" {
   template  = tinkerbell_template.HelloWorldTemplate.id
   hardwares = <<EOF
-{"helloworld":"b8:ae:ed:79:5e:1d"}
+{"intel_nuc":"b8:ae:ed:79:5e:1d"}
 EOF
 
   depends_on = [
