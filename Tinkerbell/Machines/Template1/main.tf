@@ -57,7 +57,10 @@ resource "tinkerbell_hardware" "Hardware" {
           },
           "mac": "${var.Networking.MacAddress}",
           "name_servers": [
-            "172.16.100.25"
+            "172.16.0.10",
+            "172.16.0.11",
+            "172.16.0.12",
+            "172.16.0.13"
           ],
           "uefi": true
         },
