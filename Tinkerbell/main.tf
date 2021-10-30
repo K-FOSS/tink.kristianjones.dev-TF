@@ -80,7 +80,7 @@ tasks:
       MIRROR_HOST: http-cont.service.kjdev:8080
     actions:
       - name: "hello_world"
-        image: alpine:3.11
+        image: hello-world
         environment:
           MIRROR_HOST: http-cont.service.kjdev:8080
         timeout: 60
